@@ -1,0 +1,47 @@
+
+For more information on the OpenAI Embeddings API, please visit the [official OpenAI documentation](https://platform.openai.com/docs/guides/embeddings)
+
+## Supported Models
+- `text-embedding-3-small`
+- `text-embedding-3-large`
+
+Note: If you would like to see other models supported by AI Pay, please submit feedback or reach out the the team at marcus@joinaipay.com.
+
+import { EmbeddingsExample } from "../../examples/embeddings";
+
+## Example
+<EmbeddingsExample>
+```typescript
+import { AiPayClient } from "ai-pay/client";
+import { CreateEmbeddingResponse, EmbeddingCreateParams } from "openai/resources";
+import OpenAI from "openai";
+
+async function callCalculateInputSimilarity() {  
+  const sessionId = AiPayClient.getInstance().getClientSessionId()
+  if (!sessionId) {
+    setError("You need an active session to call the AI Pay APIs.")
+    return
+  }
+
+  client = new OpenAI(
+    apiKey: sessionId,
+    baseURL: "https://api.joinaipay.com/api/openai-compatible",
+    // Safe to call from the front end as a new sessionId is generated each session
+    dangerouslyAllowBrowser: true,
+  )
+
+  const request: EmbeddingCreateParams = INPUT;
+
+  let response: CreateEmbeddingResponse;
+  try {
+    response = await client.embeddings.create(request)
+  } catch (error) {
+    handleOpenaiError(error)
+    return;
+  }
+
+  const consineSimilarity = calculateSimilarity(response.data[0].embedding, response.data[1].embedding)
+  updateUiWithResponse(response, consineSimilarity)
+}
+```
+</EmbeddingsExample>

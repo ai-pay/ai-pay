@@ -1,0 +1,5 @@
+{
+    "introduction": "OpenAI Compatible Endpoint",
+    "chat-completion": "Compatible Chat Completion",
+    "embeddings": "Compatible Embeddings"
+}

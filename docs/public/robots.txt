@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.joinaipay.com/docs
+
+# Sitemaps
+Sitemap: https://www.joinaipay.com/docs/sitemap.xml

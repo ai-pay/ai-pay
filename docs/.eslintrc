@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "../../../.eslintrc",
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended" 
+  ],
+  "plugins": ["react"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/no-unknown-property": "off",
+    "react/react-in-jsx-scope": "off",
+    "comma-dangle": ["error", "always-multiline"]
+  },
+  "globals": {
+    "chrome": "readonly"
+  },
+  "root": true,
+  "ignorePatterns": ["watch.js", "dist/**", "vite.config.ts", "utils/**", "next.config.js", "next-sitemap.config.js"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
