@@ -1,9 +1,9 @@
-import { ChatCompletionStreamChunk , ChatCompletionStreamDecoder } from "@/models"
+import { JsonStreamDecoder } from "@/models"
 import { debugError } from "../../methods/debugLogs"
 
-export async function* getIterableStream(body: ReadableStream<Uint8Array>): AsyncIterable<ChatCompletionStreamChunk> {
+export async function* getIterableStream<T>(body: ReadableStream<Uint8Array>): AsyncIterable<T> {
   const reader = body.getReader()
-  const decoder = ChatCompletionStreamDecoder()
+  const decoder = JsonStreamDecoder<T>()
 
   reader
   

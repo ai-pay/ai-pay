@@ -1,6 +1,5 @@
 import {
   AiApiResponse, 
-  ChatCompletionResponse, 
   KnowledgeBaseChatRequest, 
   KnowledgeBaseChatResponse, 
   RequestOptions, 
@@ -21,12 +20,12 @@ import { streamToJson } from "../../utils/stream/streamToJson";
  * @param {RequestOptions} [options=undefined] - Options to send with the request. eg. stubbed, sessionId
  * 
  * 
- * @return {AiApiResponse<ChatCompletionResponse>} - wrapper for error handling and returning the chat completion response
+ * @return {AiApiResponse<KnowledgeBaseChatResponse>} - wrapper for error handling and returning the knowledge base response
  */
 export async function knowledgeBaseChat(
   request: KnowledgeBaseChatRequest, 
   options: RequestOptions = {},
-): Promise<AiApiResponse<ChatCompletionResponse>> {
+): Promise<AiApiResponse<KnowledgeBaseChatResponse>> {
   
   const url = AiUsageUrl() + "/knowledge-base-chat";
 

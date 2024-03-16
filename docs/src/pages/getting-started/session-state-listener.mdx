@@ -3,9 +3,9 @@ Listen for session changes (browser extension detected, user activated session, 
 
 A session is created using the [AI Pay browser extension](https://chromewebstore.google.com/detail/ai-pay/igghgdjfklipjmgldcdfnpppgaijmhfg). Once the browser extension is installed [learn how to start a session](https://www.joinaipay.com/welcome).
 
-An active session (with available budget) is required to make an AI Pay API calls.
+An active session (with available budget) is required to make AI API calls.
 
-To reduce cost while testing you can call the APIs with [stubbed responses](/stubbed-responses). The stubbed apis will not cost anything but will still be rate limited and validate the session before returning a response.
+To reduce cost while testing you can call the APIs with [stubbed responses](/stubbed-responses). The stubbed APIs will not cost anything but will still be rate limited and validate the session before returning a response.
 
 ## Example
 import { SessionStateListenerExample } from "../../examples/sessionStateListener"
@@ -20,22 +20,20 @@ import { SessionData } from "ai-pay/models";
 const client = AiPayClient.getInstance()
 
 const sessionCallback = (session: SessionData) => {
-  const isActiveSession = session.sessionState === "ACTIVE"
+  const isActiveSession = 
 
-  if (isActiveSession) {
-    // Can make any AI Pay API request
+  if (session.browserExtensionInstalled) {
+    // Prompt the user to install the AI Pay browser extension
     return
   }
 
-  if (session.browserExtensionInstalled) {
+  if (session.sessionState !== "ACTIVE") {
     // Prompt the user to start a session
     return
   }
 
-  // Prompt the user to download the AI Pay browser extension
+  // You can now make any of the supported AI API calls
 }
 
 client.subscribeToSessionState(sessionCallback)
-
-client.unsubscribeFromSessionState(sessionCallback)
 ```

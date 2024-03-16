@@ -8,12 +8,12 @@ const withNextra = require('nextra')
 
 // import withNextra from 'nextra'
  
-const nextConfig = withNextra({
-  
+const nextConfig = withNextra({  
   theme: 'nextra-theme-docs',
   themeConfig: './src/theme.config.tsx',
   defaultShowCopyCode: true,
 })({
+  experimental: { esmExternals: "loose" },
   basePath: "/docs",
   redirects: async () => {
     return [

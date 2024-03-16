@@ -21,7 +21,7 @@ export function InputBuilderDropDown<T extends string>({
         open, 
       }): React.JSX.Element => (
         <div className="relative w-full">
-          <Listbox.Button className="relative w-full py-2 px-3 pr-10 h-10 rounded-md bg-transparent focus:!ring-1 focus:!ring-blue-400 !bg-neutral-600 focus:border-none focus:outline-none shadow-md text-sm text-left">
+          <Listbox.Button className="relative w-full py-2 px-3 pr-10 h-10 rounded-md bg-transparent focus:!ring-1 focus:!ring-blue-400 bg-neutral-600 dark:bg-neutral-600 focus:border-none focus:outline-none shadow-md text-sm text-left">
             <span className="block truncate">{value ?? "undefined"}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
               <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />

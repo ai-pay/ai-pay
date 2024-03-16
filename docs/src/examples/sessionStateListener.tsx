@@ -19,8 +19,8 @@ export function SessionStateListenerExample(): React.JSX.Element {
   }
   
   return <div className="flex flex-col w-full items-center gap-1 pt-3">
-    <DisplayRow label="sessionState: " value={sessionState} />
     <DisplayRow label="isBrowserExtensionInstalled: " value={browserExtensionInstalled ? "true": "false"} />
+    <DisplayRow label="sessionState: " value={sessionState} />
     {sessionState === "ACTIVE"
       ?
       "The Session is currently active. This website can now make any AI Pay API request."

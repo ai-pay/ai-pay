@@ -3,31 +3,27 @@ You can notify a user when they visit your website with the browser extension in
 ```
 "requestUsageOnPageLoad":true
 ```
-- Otherwise you can conditionally request usage from the user as seen in the example.
+- Otherwise you can conditionally request usage from the user as seen in the example below.
 
 ## Example
 import { RequestUsageExample } from "../../examples/requestUsage"
 
 <RequestUsageExample />
 
-```typescript
+```tsx
 import { SessionRequestData } from "ai-pay/models"
 import { requestAiPayUsage } from "ai-pay/methods"
 
-<div
-  className="flex justify-center w-full"
->
-  <button
-    className="px-5 py-2 rounded-md bg-black hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-black font-semibold transition-colors"
-    onClick={() => {
-      const requestData: SessionRequestData = {
-        requestType: "START_SESSION",
-      }
+<button
+  className="..."
+  onClick={() => {
+    const requestData: SessionRequestData = {
+      requestType: "START_SESSION",
+    }
 
-      requestAiPayUsage(requestData)
-    }}
-  >
-    Request Usage (Show AI Pay notification if the browser extension is installed)
-  </button>
-</div>
+    requestAiPayUsage(requestData)
+  }}
+>
+  {"Request Usage (Show AI Pay Notification)"}
+</button>
 ```

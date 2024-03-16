@@ -18,7 +18,7 @@ export function InputBuilderNumberInput({
 }: Props): React.JSX.Element {
   return <>
     <input 
-      className="flex-grow py-2 px-3 h-10 rounded-md bg-transparent focus:!ring-1 focus:!ring-blue-400 !bg-neutral-600 focus:border-none focus:outline-none shadow-md text-sm"
+      className="flex-grow py-2 px-3 h-10 rounded-md bg-transparent focus:!ring-1 focus:!ring-blue-400 bg-neutral-600 dark:bg-neutral-600 focus:border-none focus:outline-none shadow-md text-sm"
       type="number"
       min={min}
       max={max}

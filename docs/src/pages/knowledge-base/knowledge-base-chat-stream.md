@@ -10,35 +10,42 @@ import {
 } from "ai-pay/models"
 import { knowledgeBaseChatStream } from "ai-pay/apis"
 
-const request: KnowledgeBaseChatRequest = {
-  chatHistory: [
-    // the chat history not including the most recent question
-  ],
-  question: "What is some specific information about your company",
-  chatCompletionRequest: {
-    model: "gpt-3.5-turbo",
+export async function askQuestion(
+  question: string,
+  chatHistory: SupportedChatCompletionMessageParam[]
+) {
+  const request: KnowledgeBaseChatRequest = {
+    responseGenerationModel: "gpt-3.5-turbo",
+    chatHistory,
+    question,
   }
-}
 
-let textResponse = ""
+  let streamResponse = ""
 
-const callBack = (response: KnowledgeBaseChatStreamChunk) => {
-  // update the UI with the streamed response
-  textResponse += response?.choices[0]?.delta?.content ?? "";
-}
+  const {
+    error,
+    debugError,
+  } = await knowledgeBaseChatStream(
+    request,
+    (chunk) => {
+      if (chunk.type === "text") {
+        streamResponse += chunk.textChunk
+        updateUiWithStreamText(streamResponse)
+      } 
+      else if (chunk.type === "sources") {
+        updateUiWithSources(chunk.sources)
+      }
+      else if (chunk.type === "progress") {
+        setProgressUpdate(chunk.message)
+      }
+    },
+  )
 
-const {
-  error,
-  debugError,
-} = await knowledgeBaseChatStream(
-  request,
-  callBack
-);
-
-if (error) {
-  // Handle the error
-} else {
-  // Should have finished processing all chunks
-  console.log("Text response: ", textResponse)
+  if (error) {
+    // Handle the error
+  } else {
+    // Should have finished processing all chunks
+    console.log("Text response: ", streamResponse)
+  }
 }
 ```

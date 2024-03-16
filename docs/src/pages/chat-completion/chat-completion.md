@@ -1,10 +1,11 @@
-For more information on the OpenAI Chat Completion API, please visit the [official OpenAI documentation](https://platform.openai.com/docs/guides/text-generation)
+For more information on the Chat Completion API, please visit the [official OpenAI documentation](https://platform.openai.com/docs/guides/text-generation)
 
 ## Supported Models
 - `gpt-3.5-turbo`
 - `gpt-3.5-turbo-16k`
 - `gpt-4`
 - `gpt-4-32k`
+- `gpt-4-turbo-preview`
 
 Note: If you would like to see other models supported by AI Pay, please submit feedback or reach out the the team at marcus@joinaipay.com.
 

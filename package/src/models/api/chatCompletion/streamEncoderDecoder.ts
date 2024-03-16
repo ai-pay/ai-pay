@@ -1,15 +1,14 @@
-import { ChatCompletionStreamChunk } from "./requestResponse";
 import { debugError } from "@/methods/debugLogs";
 
-export function ChatCompletionStreamEncoder(): (response: ChatCompletionStreamChunk) => Uint8Array {
+export function JsonStreamEncoder<T>(): (response: T) => Uint8Array {
   const encoder = new TextEncoder();
 
-  return (response: ChatCompletionStreamChunk) => {
+  return (response: T) => {
     return encoder.encode(JSON.stringify(response));
   }
 }
 
-export function ChatCompletionStreamDecoder(): (chunk: Uint8Array) => ChatCompletionStreamChunk[] {
+export function JsonStreamDecoder<T>(): (chunk: Uint8Array) => T[] {
   const decoder = new TextDecoder();
 
   let previousChunk = "";

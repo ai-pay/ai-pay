@@ -5,6 +5,7 @@ const config = {
     "**/*.{ts,tsx}",
   ],
   prefix: "",
+  important: true,
 } satisfies Config
 
 export default config

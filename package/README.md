@@ -16,7 +16,7 @@ When a user with the AI Pay browser extension visits your website they are notif
 
 ## Usage
 1. Run ```npm install ai-pay``` or ```yarn add ai-pay```
-2. Visit [AI Pay website dashboard](https://www.joinaipay.com/dashboard/newwebsite) and sign up your website (~2 minutes). 
+2. Visit [AI Pay website dashboard](https://www.joinaipay.com/dashboard/new-website) and sign up your website (~2 minutes). 
 3. Copy the meta tag from the AI Pay website dashboard into the header of your website. The meta tag should be copied from the dashboard and will look something like this.
 ```html
 <meta 

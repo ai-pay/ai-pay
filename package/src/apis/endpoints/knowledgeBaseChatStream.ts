@@ -19,7 +19,6 @@ import { sendRequestToServer } from "./sendRequest";
  * 
  * @param {RequestOptions} [options=undefined] - Options to send with the request. eg. stubbed, sessionId
  * 
- * 
  * @returns {AiApiResponse<object>} - Wrapper for error handling
 */
 export async function knowledgeBaseChatStream(
@@ -50,7 +49,7 @@ function handleChatCompletionStreamFetchResponse(callback: CallbackType): (fetch
       }
     }
       
-    const stream = await getIterableStream(fetchResponse.body)
+    const stream = await getIterableStream<KnowledgeBaseChatStreamChunk>(fetchResponse.body)
     
     if (fetchResponse.status !== 200) {
       const firstChunk = await getFirstChunk(stream) as ServerErrorResponse 
@@ -64,6 +63,12 @@ function handleChatCompletionStreamFetchResponse(callback: CallbackType): (fetch
     }
     
     for await (const chunk of stream) {
+      if (chunk.type === "error") {
+        debugError("chatCompletionStream failed with error chunk", chunk)
+        return {
+          error: chunk.errorMessage,
+        }
+      }
       callback(chunk);
     }
     

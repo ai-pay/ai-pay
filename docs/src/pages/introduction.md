@@ -1,5 +1,5 @@
 ## AI Pay
-AI Pay is a tool that allows website developers to use AI APIs (Chat GPT, image generation etc.) and easily pass on the cost to the users.
+AI Pay is a payment solution to facilitate Al services. AI Pay is designed for safe, one time, micro-transactions, specifically for AI. AI Pay allows website developers to use AI APIs (Chat GPT, image generation etc.) to improve user experience and the users of the website pay for their individual usage.
 
 The AI Pay client package abstracts security concerns away from the AI development process, so AI APIs can be called from the front end or the back end. Start developing with AI without worrying about payments, users, a backend or a database.
 
@@ -15,7 +15,8 @@ Users with the AI Pay browser extension are notified when they visit a website u
 - Build an AI startup proof of concept within hours not weeks.
 
 ### How It Benefits The Users Of Your Website
-- Users automatically get USD $5 worth of credits when they sign up. This should last most users a few months. 
+- Users automatically get USD $5 worth of credits when they sign up. This should last most users around a month. 
+- AI Pay ensures a users payment is used for AI related purposes.
 - AI Pay enables AI products or features that currently aren't economically viable. These AI products could greatly increase a user's productivity or enjoyment on a website.
 - Single point of payment for a user.
 - Anonymous payment for AI products.

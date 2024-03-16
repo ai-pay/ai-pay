@@ -50,7 +50,7 @@ function handleChatCompletionStreamFetchResponse(callback: CallbackType): (fetch
       }
     }
     
-    const stream = await getIterableStream(fetchResponse.body)
+    const stream = await getIterableStream<ChatCompletionStreamChunk>(fetchResponse.body)
   
     if (fetchResponse.status !== 200) {
       const firstChunk = await getFirstChunk(stream) as ServerErrorResponse 

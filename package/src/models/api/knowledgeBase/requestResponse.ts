@@ -1,5 +1,4 @@
-import {
-  ChatCompletionRequest, ChatCompletionResponse, ChatCompletionStreamChunk, 
+import { 
   SupportedChatCompletionMessageParam,
   SupportedChatCompletionModel
 } from "../chatCompletion";
@@ -7,44 +6,53 @@ import {
 /**
  * Request types for the knowledge base chat endpoint
  * 
- * @property knowledgeBaseId - The knowledge base to use for context. 
- * If not provided the knowledge base is the one created on the join ai pay website dashboard
- * 
- * @property systemPromptTemplate - The system prompt template to use for the chat completion request. 
- * Will replace {context} with the data retrieved from the knowledge base.
- * 
- * @property rephraseTemplate - The rephrase template to be used to generate a standalone question to search the knowledge base.
+ * @property responseGenerationModel - The model to use for generating the response to the user.
  * 
  * @property rephraseGenerationModel - The model to use for generating a standalone question to search the knowledge base.
- * Defaults to the model specified in the chatCompletionRequest.
- * 
- * @property maxNumberOfContextChunks - The maximum number of context chunks to use for the chat completion request. 
- * More chunks may result in more accurate completions but may also result in higher costs.
+ * Defaults to the the responseGenerationModel.
  * 
  * @property chatHistory - The chat history for the current conversation.
  * 
  * @property question - The most recent question asked by the user.
  * 
- * @property chatCompletionRequest - The chat completion options to modify the parameters of the chat completion model.
+ * @property maxNumberOfContextChunks - The maximum number of context chunks to use for the chat completion request. 
+ * More chunks may result in more accurate completions but may also result in higher costs.
+ * 
+ * @property retrievalThreshold - Context chunks must have a retrieval score above this threshold to be used in the completion.
  */
 export type KnowledgeBaseChatRequest = {
-  knowledgeBaseId?: string;
-
-  systemPromptTemplate?: `${string}{context}${string}`;
-
-  rephraseTemplate?: `${string}{chat_history}${string}{question}${string}`;
-
+  responseGenerationModel: SupportedChatCompletionModel
   rephraseGenerationModel?: SupportedChatCompletionModel
-
-  maxNumberOfContextChunks?: number;
-
+  
   chatHistory: Array<SupportedChatCompletionMessageParam>
-
   question: string;
   
-  chatCompletionRequest: Omit<ChatCompletionRequest, "messages">
+  maxNumberOfContextChunks?: number;
+  retrievalThreshold?: number;
 };
 
-export type KnowledgeBaseChatResponse = ChatCompletionResponse
+export type KnowledgeBaseSource = {
+  url: string
+  title: string
+}
+export interface KnowledgeBaseChatResponse {
+  response: string;
+  sources: KnowledgeBaseSource[] 
+}
 
-export type KnowledgeBaseChatStreamChunk = ChatCompletionStreamChunk
+export type KnowledgeBaseChatStreamChunk = {
+  type: "text";
+  textChunk: string;
+} | {
+  type: "sources";
+  sources: KnowledgeBaseSource[];
+} | {
+  type: "progress";
+  message: string;
+} | {
+  type: "error";
+  errorMessage: string;
+} | {
+  type: "debug";
+  debugMessage: string;
+}

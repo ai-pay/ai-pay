@@ -26,7 +26,7 @@ export function ImageGenerationExample({
   const [loadingForRequestData, setLoadingForRequestData] = useState<ImageGenerationRequest | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [imageInput, setImageInput] = useState<ImageGenerationRequest>({
-    prompt: "Magical and majestic black cat with wings and 2 horns in a lush green forest in the style of cartoon psychedelic",
+    prompt: "Cute black cat with wings and 2 horns in a lush green forest in the style of cartoon psychedelic",
     imageModel: "dall-e-3",
     quality: "standard",
     size: "1024x1024",
@@ -98,7 +98,7 @@ export function ImageGenerationExample({
 
       {error && <div className="text-white bg-red-600 bg-opacity-25 px-3 py-1 ring-1 ring-red-500 rounded-md mx-auto">{error}</div>}
 
-      {outputs.length === 0 && <RequiresAiPayPrompt featureName={"Generating images"} featureAction={"generate images"} />}
+      {outputs.length === 0 && loadingForRequestData === null && <RequiresAiPayPrompt featureName={"Generating images"} featureAction={"generate images"} />}
 
       <DisplayGeneratedOutputs outputs={outputs} loadingForRequestData={loadingForRequestData} />
       
