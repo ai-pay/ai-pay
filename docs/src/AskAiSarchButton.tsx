@@ -13,7 +13,7 @@ function useAskAiChatConfig(): ChatConfig | undefined{
   useEffect(() => {
     setChatConfig({
       colorMode: (resolvedTheme ?? "auto") as "light" | "dark" | "auto",
-      initialAssistantQuestion: "I'm here to answer any questions about the AI Pay documentation. How may I help you?",
+      initialAssistantQuestion: "I'm here to answer any questions about the AI Pay documentation. How can I help you today?",
       defaultQuestions: [
         "How to get started with AI Pay?",
         "What are the benefits of using AI Pay?",
