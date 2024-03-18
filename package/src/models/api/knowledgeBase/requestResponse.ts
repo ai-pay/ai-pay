@@ -25,8 +25,8 @@ import {
  * @property retrievalThreshold - Context chunks must have a retrieval score above this threshold to be used in the completion.
  */
 export type KnowledgeBaseChatRequest = {
-  systemPromptTemplate: `${string}{context}${string}`
-  systemPromptContextChunkTemplate: `${string}{content}${string}` | `${string}{content}${string}{index}${string}` | `${string}{index}${string}{content}${string}`
+  systemPromptTemplate?: `${string}{context}${string}`
+  systemPromptContextChunkTemplate?: `${string}{content}${string}` | `${string}{content}${string}{index}${string}` | `${string}{index}${string}{content}${string}`
 
   responseGenerationModel: SupportedChatCompletionModel
   rephraseGenerationModel?: SupportedChatCompletionModel
