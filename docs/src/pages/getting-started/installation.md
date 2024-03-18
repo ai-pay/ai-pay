@@ -23,4 +23,4 @@ npm i ai-pay
 ```
 
 ### 3. Start Using AI APIs
-After signing up the website and installing the meta tag the website can now listen for a users session state. During an active session the website can use any of the supported AI APIs.
+After signing up the website and installing the meta tag the website can now [listen for a users session state](/getting-started/session-state-listener). During an active session the website can use any of the supported AI APIs.

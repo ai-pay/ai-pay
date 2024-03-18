@@ -1,4 +1,6 @@
 
+Follow the [getting started guide](/knowledge-base/getting-started) to create a knowledge base.
+
 Chat with the knowledge base to get specific answers about a particular topic.
 
 The knowledge base stream will stream the response, allowing for a chat gpt like experience.

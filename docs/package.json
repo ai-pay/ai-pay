@@ -10,7 +10,7 @@
     "lint": "eslint ./src --fix"
   },
   "dependencies": {
-    "@ai-pay/ask-ai": "^0.0.5",
+    "@ai-pay/ask-ai": "^0.0.9",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@radix-ui/react-navigation-menu": "^1.1.4",
