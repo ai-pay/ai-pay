@@ -6,6 +6,10 @@ import {
 /**
  * Request types for the knowledge base chat endpoint
  * 
+ * @property systemPromptTemplate - The template to use for the system prompt.
+ * 
+ * @property systemPromptContextChunkTemplate - The template to use for each context chunk in the system prompt.
+ * 
  * @property responseGenerationModel - The model to use for generating the response to the user.
  * 
  * @property rephraseGenerationModel - The model to use for generating a standalone question to search the knowledge base.
@@ -21,6 +25,9 @@ import {
  * @property retrievalThreshold - Context chunks must have a retrieval score above this threshold to be used in the completion.
  */
 export type KnowledgeBaseChatRequest = {
+  systemPromptTemplate: `${string}{context}${string}`
+  systemPromptContextChunkTemplate: `${string}{content}${string}` | `${string}{content}${string}{index}${string}` | `${string}{index}${string}{content}${string}`
+
   responseGenerationModel: SupportedChatCompletionModel
   rephraseGenerationModel?: SupportedChatCompletionModel
   
