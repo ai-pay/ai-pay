@@ -12,7 +12,7 @@ if (!sessionId) {
   return
 }
 
-client = new OpenAI(
+const client = new OpenAI(
   apiKey: sessionId,
   baseURL: "https://api.joinaipay.com/api/openai-compatible",
   // Safe to call from the front end as a new sessionId is generated each session
