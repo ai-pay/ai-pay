@@ -16,11 +16,7 @@ export type AiApiRequest<T> = {
   requestData: T
 }
 
-export type AiApiResponse<T> = {
-  error: string
-  debugError?: string
-  data?: undefined
-} | {
+export type AiApiResponse<T> = ServerErrorResponse | {
   error?: undefined
   debugError?: undefined
   data: T
@@ -29,6 +25,7 @@ export type AiApiResponse<T> = {
 export type ServerErrorResponse = {
   error: string
   debugError?: string
+  data?: undefined
 }
 
 /**

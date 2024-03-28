@@ -16,8 +16,8 @@ import { streamToJson } from "@/utils/stream/streamToJson";
  * 
  * @returns {AiApiResponse<ImageGenerationResponse>} - Wrapper for error handling and response data
  */
-export async function imageGeneration(
-  request: ImageGenerationRequest, 
+export async function imageGeneration<T extends ImageGenerationRequest>(
+  request: T, 
   options: RequestOptions = {},
 ): Promise<AiApiResponse<ImageGenerationResponse>> {
   const url = AiUsageUrl() + "/image-generation";
@@ -46,8 +46,8 @@ async function handleImageGenerationFetchRequest(fetchResponse: Response): Promi
       
     const body = jsonBody as Partial<ServerErrorResponse>
     return {
-      error: body.error ?? "Internal server error",
-      debugError: (body.debugError ?? "") + ". failed with non 200 status code",
+      error: body.error ?? "Unknown internal server error",
+      debugError: (body.debugError ?? "") + " Failed with non 200 status code",
     }
   }
   
