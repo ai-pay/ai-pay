@@ -11,31 +11,47 @@ export function isSupportedImageModel(model: string): model is SupportedImageMod
   return supportedImageModels.includes(model as SupportedImageModel)
 }
 
-export type ImageGenerationRequest = {
+export type ImageGenerationRequest = Dalle2Request | Dalle3Request | StabilityAiCoreRequest;
+
+export type Dalle2Request = {
   prompt: string,
-} & ({
   imageModel: "dall-e-2",
   n?: number,
   size: "256x256" | "512x512" | "1024x1024",
-} | {
+}
+
+export type Dalle3Request = {
+  prompt: string,
   imageModel: "dall-e-3",
   size: "1024x1024" | "1792x1024" | "1024x1792",
   quality: "standard" | "hd",
   style?: "vivid" | "natural"
-} | {
+}
+
+export type StabilityAiCoreRequest = {
+  prompt: string,
   imageModel: "stability-ai-core",
   aspect_ratio?: "16:9" | "1:1" | "21:9" | "2:3" | "3:2" | "4:5" | "5:4" | "9:16" | "9:21",
   negative_prompt?: string,
   seed?: number,
   output_format?: "png" | "jpeg" | "webp",
-});
+}
 
 export type ImageGenerationResponse = ImageGenerationUrlResponse | ImageGenerationBufferResponse;
 
 export type ImageGenerationUrlResponse = {
-  imageUrl: string
+  imageUrls: string[]
+  imageDetails?: {
+    url?: string,
+    revisedPrompt?: string,
+  }[]
 };
 
 export type ImageGenerationBufferResponse = {
-  image: string
+  base64Images: string[]
+
+  imageDetails?: {
+    url?: string,
+    revisedPrompt?: string,
+  }[]
 }

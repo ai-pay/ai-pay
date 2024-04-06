@@ -1,6 +1,6 @@
 {
   "name": "ai-pay",
-  "version": "0.3.6",
+  "version": "0.3.10",
   "description": "Client package to interact with AI Pay",
   "homepage": "https://joinaipay.com/",
   "main": "./index.js",

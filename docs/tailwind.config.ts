@@ -4,6 +4,7 @@ const config = {
   content: [
     "**/*.{ts,tsx}",
   ],
+  darkMode: "class",
   prefix: "",
   important: true,
 } satisfies Config
