@@ -42,9 +42,9 @@ type InputProps = ComponentProps<'input'> & { suffix?: ReactNode }
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, suffix, ...props }, forwardedRef) => (
     <div 
-    onClick={props.onClick}
-    className="nx-relative nx-flex nx-items-center nx-text-gray-900 contrast-more:nx-text-gray-800 dark:nx-text-gray-300 contrast-more:dark:nx-text-gray-300">
-      <input
+      onClick={props.onClick}
+      className="nx-relative nx-flex nx-items-center nx-text-gray-900 contrast-more:nx-text-gray-800 dark:nx-text-gray-300 contrast-more:dark:nx-text-gray-300">
+      <span
         ref={forwardedRef}
         spellCheck={false}
         className={cn(
@@ -56,7 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           'contrast-more:nx-border contrast-more:nx-border-current'
         )}
         {...props}
-      />
+      >{props.placeholder}</span>
       {suffix}
     </div>
   )
@@ -88,21 +88,10 @@ export function AskAiSearchButton(): React.JSX.Element | null {
   }, [])
 
   return <div className='nextra-search relative md:nx-w-64'>
-    <button 
-    className="fixed bottom-10 right-10 rounded-full py-4 px-5 text-white flex gap-2 bg-gradient-to-r from-blue-400 to-blue-600 text-lg font-bold shadow-lg
-      hover:transform hover:scale-110 transition-transform duration-300 ease-in-out"
-    onClick={() => setIsShowing(true)}
-    >
-      <p>
-        Ask AI 
-      </p>
-      <SparklesIcon className="w-6" />
-    </button>
     <Input
-      disabled
       onClick={() => setIsShowing(true)}
       type="search"
-      placeholder="Ask AI Documentation ..."
+      placeholder="Ask Documentation AI ..."
       suffix={(
         <kbd
           className={cn(
@@ -125,6 +114,16 @@ export function AskAiSearchButton(): React.JSX.Element | null {
         </kbd>
       )}
     />
+    <button 
+      className="fixed bottom-10 right-10 rounded-full py-4 px-5 text-white flex gap-2 bg-gradient-to-r from-blue-400 to-blue-600 text-lg font-bold shadow-lg
+      hover:transform hover:scale-110 transition-transform duration-300 ease-in-out"
+      onClick={() => setIsShowing(true)}
+    >
+      <p>
+        Ask AI 
+      </p>
+      <SparklesIcon className="w-6" />
+    </button>
     <AskAiModal isShowing={isShowing} onClose={() => setIsShowing(false) } chatConfig={chatConfig} />
   </div>
 }
