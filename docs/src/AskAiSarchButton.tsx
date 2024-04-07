@@ -4,8 +4,6 @@ import { useTheme } from "nextra-theme-docs";
 import dynamic from "next/dynamic";
 import { useMounted } from 'nextra/hooks'
 import cn from 'clsx'
-import type { ComponentProps, ReactNode } from 'react'
-import { forwardRef } from 'react'
 import SparklesIcon from "@heroicons/react/24/solid/SparklesIcon";
 
 function useAskAiChatConfig(): ChatConfig | undefined{
@@ -37,31 +35,6 @@ const AskAiModal = dynamic(
   { ssr: false },
 )
 
-type InputProps = ComponentProps<'input'> & { suffix?: ReactNode }
-
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, suffix, ...props }, forwardedRef) => (
-    <div 
-      onClick={props.onClick}
-      className="nx-relative nx-flex nx-items-center nx-text-gray-900 contrast-more:nx-text-gray-800 dark:nx-text-gray-300 contrast-more:dark:nx-text-gray-300">
-      <span
-        ref={forwardedRef}
-        spellCheck={false}
-        className={cn(
-          'nx-block nx-w-full nx-appearance-none nx-rounded-lg nx-px-3 nx-py-2 nx-transition-colors',
-          'nx-text-base nx-leading-tight md:nx-text-sm',
-          'nx-bg-black/[.05] dark:nx-bg-gray-50/10',
-          'focus:nx-bg-white dark:focus:nx-bg-dark',
-          'placeholder:nx-text-gray-500 dark:placeholder:nx-text-gray-400',
-          'contrast-more:nx-border contrast-more:nx-border-current'
-        )}
-        {...props}
-      >{props.placeholder}</span>
-      {suffix}
-    </div>
-  )
-)
-
 export function AskAiSearchButton(): React.JSX.Element | null {
   const [isShowing, setIsShowing] = useState(false)
 
@@ -88,32 +61,39 @@ export function AskAiSearchButton(): React.JSX.Element | null {
   }, [])
 
   return <div className='nextra-search relative md:nx-w-64'>
-    <Input
+    <button 
       onClick={() => setIsShowing(true)}
-      type="search"
-      placeholder="Ask Documentation AI ..."
-      suffix={(
-        <kbd
-          className={cn(
-            'nx-absolute nx-my-1.5 nx-select-none ltr:nx-right-1.5 rtl:nx-left-1.5',
-            'nx-h-5 nx-rounded nx-bg-white nx-px-1.5 nx-font-mono nx-text-[10px] nx-font-medium nx-text-gray-500',
-            'nx-border dark:nx-border-gray-100/20 dark:nx-bg-dark/50',
-            'contrast-more:nx-border-current contrast-more:nx-text-current contrast-more:dark:nx-border-current',
-            'nx-items-center nx-gap-1 nx-transition-opacity',
-            'nx-pointer-events-none nx-hidden sm:nx-flex'
-          )}
-          title={undefined}
-        >
-          {!mounted || navigator.userAgent.includes('Macintosh') ? (
-            <>
-              <span className="nx-text-xs">⌘</span>K
-            </>
-          ) : (
-            'CTRL K'
-          )}
-        </kbd>
-      )}
-    />
+      className="nx-relative nx-flex nx-items-center nx-text-gray-900 contrast-more:nx-text-gray-800 flex gap-16 dark:nx-text-gray-300 contrast-more:dark:nx-text-gray-300 nx-bg-black/[.05] dark:nx-bg-gray-50/10 nx-rounded-lg pr-3">
+      <span
+        className={cn(
+          'nx-block nx-w-full nx-appearance-none nx-rounded-lg nx-px-3 nx-py-2 nx-transition-colors',
+          'nx-text-base nx-leading-tight md:nx-text-sm',
+          'focus:nx-bg-white dark:focus:nx-bg-dark',
+          'placeholder:nx-text-gray-500 dark:placeholder:nx-text-gray-400',
+          'contrast-more:nx-border contrast-more:nx-border-current'
+        )}
+      >Ask AI ...</span>
+      <kbd
+        className={cn(
+          'nx-my-1.5 nx-select-none ltr:nx-right-1.5 rtl:nx-left-1.5',
+          'nx-h-5 nx-rounded nx-bg-white nx-px-1.5 nx-font-mono nx-text-[10px] nx-font-medium nx-text-gray-500',
+          'nx-border dark:nx-border-gray-100/20 dark:nx-bg-dark/50',
+          'contrast-more:nx-border-current contrast-more:nx-text-current contrast-more:dark:nx-border-current',
+          'nx-items-center nx-gap-1 nx-transition-opacity',
+          'nx-pointer-events-none nx-hidden sm:nx-flex'
+        )}
+        title={undefined}
+      >
+        {!mounted || navigator.userAgent.includes('Macintosh') ? (
+          <>
+            <span className="nx-text-xs">⌘</span>K
+          </>
+        ) : (
+          'CTRL K'
+        )}
+      </kbd>
+    </button>
+
     <button 
       className="fixed bottom-10 right-10 rounded-full py-4 px-5 text-white flex gap-2 bg-gradient-to-r from-blue-400 to-blue-600 text-lg font-bold shadow-lg
       hover:transform hover:scale-110 transition-transform duration-300 ease-in-out"
