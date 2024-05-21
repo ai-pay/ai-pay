@@ -1,0 +1,65 @@
+{
+  "name": "ai-pay",
+  "version": "1.0.0",
+  "description": "AI Pay sdk",
+  "homepage": "https://www.ai-pay.dev/",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./apis": {
+      "import": "./apis/index.mjs",
+      "require": "./apis/index.js",
+      "types": "./apis/index.d.ts"
+    },
+    "./client": {
+      "import": "./client/index.mjs",
+      "require": "./client/index.js",
+      "types": "./client/index.d.ts"
+    },
+    "./methods": {
+      "import": "./methods/index.mjs",
+      "require": "./methods/index.js",
+      "types": "./methods/index.d.ts"
+    },
+    "./models": {
+      "import": "./models/index.mjs",
+      "require": "./models/index.js",
+      "types": "./models/index.d.ts"
+    }
+  },
+  "files": [
+    "./*",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts src --fix",
+    "watch": "tsup --watch",
+    "build": "tsup",
+    "test": "jest"
+  },
+  "keywords": [
+    "AIPay",
+    "ai",
+    "ai-pay",
+    "ai-pay-js",
+    "ai-pay-node",
+    "ai-pay-client"
+  ],
+  "author": "AI-Pay",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-mg-custom": "github:Marchusness/custom-lint",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "zod": "^3.23.8"
+  },
+  "dependencies": {
+    "openai": "^4.24.7"
+  }
+}
