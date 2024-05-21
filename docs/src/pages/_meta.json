@@ -2,12 +2,12 @@
   "npm package": {
     "type": "page",
     "href": "https://www.npmjs.com/package/ai-pay",
-    "title": "NPM Package"
+    "title": "NPM"
   },
 
   "website dashboard": {
     "type": "page",
-    "href": "https://www.joinaipay.com/dashboard",
+    "href": "https://www.ai-pay.dev/dashboard",
     "title": "Dashboard"
   },
 
@@ -15,50 +15,9 @@
       "title": "Introduction"
     },
 
-    "getting-started": {
-      "title": "Getting Started"
-    },
-
-    "methods": {
-      "title": "Methods"
-    },
-
-    "-- AI APIs": {
-      "type": "separator",
-      "title": "AI APIs"
-    },
-
-    "chat-completion": {
-      "title": "Chat Completion (LLMs)"
-    },
-
-    "embeddings": {
-      "title": "Embeddings"
-    },
-    
-    "image-generation": {
-      "title": "Image Generation"
-    },
-
-    "knowledge-base": {
-      "title": "Knowledge Base"
-    },
-    
-    "openai-compatible": {
-      "title": "OpenAI Compatible Endpoint"
-    },
-
     "-- More": {
       "type": "separator",
       "title": "More"
-    },
-
-    "calling-from-frontend-vs-backend": "Calling From Front End vs Back End",
-
-    "stubbed-responses": "Stubbed Responses",
-
-    "coming-soon": {
-      "title": "Coming Soon"
     },
 
     "feedback": {

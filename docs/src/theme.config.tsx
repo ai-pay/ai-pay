@@ -1,12 +1,8 @@
 import "@ai-pay/ask-ai/dist/index.css"
-import { AskAiSearchButton } from "./AskAiSarchButton"
 import { DocsThemeConfig } from "nextra-theme-docs"
 import { Logo } from "./utils/Logo"
 
 const config: DocsThemeConfig = {
-  search: {
-    component: <AskAiSearchButton />,
-  },
   footer: {
     text: "AI Pay Pty Ltd 2023",
   },

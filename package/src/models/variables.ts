@@ -1,4 +1,0 @@
-
-export const IS_AI_PAY_INSTALLED_ELEMENT_ID = "IS_AI_PAY_INSTALLED_ELEMENT_ID";
-export const SESSION_ID_DATA_ELEMENT_ID = "AI_PAY_SESSION_ID_DATA_ELEMENT_ID";
-export const META_TAG_NAME = "ai-pay-website-identifier";
