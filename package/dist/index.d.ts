@@ -1,10 +1,8 @@
-import { CheckAccessRequest, ApiResponse, CheckAccessResponse, RequestAccessRequest, RequestAccessResponse } from './models/index.js';
-export { PathToRequestResponse, checkAccessRequestSchema, checkAccessResponseSchema, requestAccessRequestSchema, requestAccessResponseSchema } from './models/index.js';
-export { setRootUrl } from './utils/index.js';
+import { C as CheckAccessRequest, a as CheckAccessResponse, I as ImageGenerationRequest, b as ImageGenerationResponse } from './imageGeneration-d988b66d.js';
 import 'zod';
 
-declare function checkAiPayAccess(apiKey: string, request: CheckAccessRequest): Promise<ApiResponse<CheckAccessResponse>>;
+declare function checkAccess(apiKey: string, request: CheckAccessRequest): Promise<CheckAccessResponse>;
 
-declare function requestAiPayAccess(apiKey: string, request: RequestAccessRequest): Promise<ApiResponse<RequestAccessResponse>>;
+declare function imageGeneration(apiKey: string, request: ImageGenerationRequest): Promise<ImageGenerationResponse>;
 
-export { ApiResponse, CheckAccessRequest, CheckAccessResponse, RequestAccessRequest, RequestAccessResponse, checkAiPayAccess, requestAiPayAccess };
+export { checkAccess, imageGeneration };

@@ -1,55 +1,35 @@
 {
   "name": "ai-pay",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "AI Pay sdk",
   "homepage": "https://www.ai-pay.dev/",
-  "main": "./index.js",
-  "module": "./index.mjs",
-  "types": "./index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.js",
-      "types": "./index.d.ts"
-    },
-    "./apis": {
-      "import": "./apis/index.mjs",
-      "require": "./apis/index.js",
-      "types": "./apis/index.d.ts"
-    },
-    "./client": {
-      "import": "./client/index.mjs",
-      "require": "./client/index.js",
-      "types": "./client/index.d.ts"
-    },
-    "./methods": {
-      "import": "./methods/index.mjs",
-      "require": "./methods/index.js",
-      "types": "./methods/index.d.ts"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./models": {
-      "import": "./models/index.mjs",
-      "require": "./models/index.js",
-      "types": "./models/index.d.ts"
+      "import": "./dist/models/index.mjs",
+      "require": "./dist/models/index.js",
+      "types": "./dist/models/index.d.ts"
     }
   },
   "files": [
-    "./*",
+    "dist",
     "README.md"
   ],
   "scripts": {
     "lint": "eslint --ext .ts src --fix",
     "watch": "tsup --watch",
     "build": "tsup",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "AIPay",
     "ai",
-    "ai-pay",
-    "ai-pay-js",
-    "ai-pay-node",
-    "ai-pay-client"
+    "ai-pay"
   ],
   "author": "AI-Pay",
   "license": "ISC",

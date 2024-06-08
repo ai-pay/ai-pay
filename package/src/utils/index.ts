@@ -1,2 +1,0 @@
-
-export { setRootUrl } from "./url";
