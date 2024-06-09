@@ -16,4 +16,4 @@ export type CheckAccessResponse = ApiErrorWrapper<{
   access: true;
   creditLimit: number;
   creditsUsed?: number;
-}>
+}, "INTERNAL_SERVER_ERROR" | "NO_AUTH_TOKEN" | "INVALID_AUTH_TOKEN" | "INVALID_REQUEST">

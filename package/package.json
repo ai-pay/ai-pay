@@ -1,6 +1,6 @@
 {
   "name": "ai-pay",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "description": "AI Pay sdk",
   "homepage": "https://www.ai-pay.dev/",
   "exports": {
@@ -10,9 +10,9 @@
       "types": "./dist/index.d.ts"
     },
     "./models": {
-      "import": "./dist/models/index.mjs",
-      "require": "./dist/models/index.js",
-      "types": "./dist/models/index.d.ts"
+      "import": "./dist/models.mjs",
+      "require": "./dist/models.js",
+      "types": "./dist/models.d.ts"
     }
   },
   "files": [
