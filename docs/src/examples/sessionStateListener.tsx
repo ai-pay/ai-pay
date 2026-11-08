@@ -1,5 +1,5 @@
 import { AIPayBrowserExtensionLink } from "@/components/aiPayBrowserExtensionLink";
-import { useSessionData } from "ai-pay-react-hooks";
+import { useSessionData } from "@/hooks/aiPaySession";
 
 export function SessionStateListenerExample(): React.JSX.Element {
   const {
