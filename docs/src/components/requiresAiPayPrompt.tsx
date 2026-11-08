@@ -1,6 +1,6 @@
 
 import { StyledLink } from "./styledLink";
-import { useSessionData } from "ai-pay-react-hooks";
+import { useSessionData } from "@/hooks/aiPaySession";
 
 interface SexyWrapperProps {
   children: React.ReactNode | React.ReactNode[];

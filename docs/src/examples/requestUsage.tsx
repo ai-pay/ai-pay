@@ -1,7 +1,7 @@
 import { AIPayBrowserExtensionLink } from "@/components/aiPayBrowserExtensionLink";
 import { StyledButton } from "@/components/styledButton";
 import { requestAiPayUsage } from "ai-pay/methods";
-import { useIsBrowserExtensionInstalled } from "ai-pay-react-hooks";
+import { useIsBrowserExtensionInstalled } from "@/hooks/aiPaySession";
 
 export function RequestUsageExample(): React.JSX.Element {
   const isBrowserExtensionInstalled = useIsBrowserExtensionInstalled();

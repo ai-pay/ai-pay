@@ -1,4 +1,3 @@
-import "@ai-pay/ask-ai/dist/index.css"
 import { DocsThemeConfig } from "nextra-theme-docs"
 import { Logo } from "./utils/Logo"
 
